@@ -60,13 +60,13 @@ def main():
 
     config["visibility_radius"] = st.number_input(
         "Visibility Radius (Optional)",
-        value=config.get("visibility_radius", 0.0) if config.get("visibility_radius") else None,
+        value=config.get("visibility_radius", 0.0) or 0.0,
         step=1.0
     )
 
     config["max_triangles"] = st.number_input(
         "Max Triangles (Optional)",
-        value=config.get("max_triangles", 0) if config.get("max_triangles") else None,
+        value=config.get("max_triangles", 0) or 0,
         step=100
     )
 
