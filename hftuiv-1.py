@@ -18,7 +18,7 @@ def main():
         # Default configuration
         config = {
             "heightfield_image": "",
-            "focal_point": [0, 0],
+            "focal_point": [0.0, 0.0],
             "horizontal_scale": 1.0,
             "vertical_scale": 255.0,
             "polygon_count": 10000,
@@ -34,9 +34,10 @@ def main():
         value=config.get("heightfield_image", "")
     )
 
+    focal_point = config.get("focal_point", [0.0, 0.0])
     config["focal_point"] = [
-        st.number_input("Focal Point X", value=config.get("focal_point", [0, 0])[0], step=1.0),
-        st.number_input("Focal Point Y", value=config.get("focal_point", [0, 0])[1], step=1.0)
+        st.number_input("Focal Point X", value=float(focal_point[0]), step=1.0),
+        st.number_input("Focal Point Y", value=float(focal_point[1]), step=1.0)
     ]
 
     config["horizontal_scale"] = st.number_input(
